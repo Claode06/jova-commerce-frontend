@@ -1,0 +1,25 @@
+## Verification Checklist
+
+- [x] Homepage loads hero carousel with 3 slides
+- [x] Categories grid displays with names + product counts
+- [x] Flash sale banner shows when `flash_sale` data returned from API
+- [x] Product grid shows 8 newest products
+- [x] Loading skeletons appear while fetching
+- [x] Skeleton fallback for missing product images
+- [x] `/products` page renders filter sidebar + product grid
+- [x] Category filter works — clicking category updates URL and results
+- [x] Brand filter works
+- [x] Gender filter works (radio buttons)
+- [x] Sort dropdown works (newest, price asc/desc, name)
+- [x] Active filter badges appear with remove buttons
+- [x] "Hapus Semua" clears all filters
+- [x] Pagination renders with page numbers
+- [x] Empty state shown when no products found
+- [x] `/products/[slug]` loads product detail
+- [x] Breadcrumb shows category link
+- [x] Image gallery thumbnails clickable
+- [x] Variant selector highlights selected variant
+- [x] Qty +/- controls work (min 1)
+- [x] "Tambah ke Keranjang" button disabled until variant selected
+- [x] Description, Features, Reviews tabs work
+- [x] All pages pass build without errors

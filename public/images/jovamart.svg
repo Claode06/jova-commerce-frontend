@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Latar Belakang Oval Oranye -->
+  <ellipse cx="400" cy="300" rx="350" ry="220" fill="#ED7931" />
+  
+  <!-- Garis Cincin Putih Bagian Dalam -->
+  <ellipse cx="400" cy="300" rx="330" ry="200" fill="none" stroke="#FFFFFF" stroke-width="6" />
+
+  <!-- Ikon Keranjang Belanja (Garis Abu-abu) -->
+  <polyline points="320,230 520,230 480,330 320,330" fill="none" stroke="#5C5C5C" stroke-width="20" stroke-linejoin="round" />
+  
+  <!-- Panah Maju di Bawah Keranjang -->
+  <line x1="320" y1="370" x2="480" y2="370" stroke="#F5A67B" stroke-width="16" stroke-linecap="round" />
+  <polygon points="470,350 510,370 470,390" fill="#F5A67B" />
+
+  <!-- Roda Keranjang -->
+  <circle cx="360" cy="410" r="16" fill="#FFFFFF" />
+  <circle cx="440" cy="410" r="16" fill="#FFFFFF" />
+
+  <!-- Teks "J" (Inisial Ornamen) -->
+  <text x="240" y="370" font-family="'Brush Script MT', cursive, sans-serif" font-style="italic" font-weight="bold" font-size="180" fill="#FFFFFF">J</text>
+  
+  <!-- Teks "ova" di dalam Keranjang -->
+  <text x="350" y="315" font-family="Arial, sans-serif" font-weight="bold" font-size="80" fill="#FFFFFF">ova</text>
+</svg>

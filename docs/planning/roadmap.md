@@ -1,0 +1,79 @@
+# Jova Mart Frontend — Roadmap
+
+## Stack
+
+- **Frontend:** Nuxt 4, Vue 3, Pinia, daisyUI 5, Tailwind CSS v4
+- **Backend:** Laravel 12 API (Sanctum auth), MySQL
+
+## Overview
+
+Customer-facing e-commerce frontend yang mengonsumsi API jova-mart-backend. Meliputi katalog produk, cart, checkout, order, payment, dan tracking pengiriman.
+
+---
+
+## Milestones
+
+### Phase 01 — Configuration & Project Structure     [x] DONE
+
+**Goal:** Project scaffold, Tailwind + daisyUI installed, AGENTS.md & planning docs created.
+
+### Phase 02 — API Layer & Authentication              [x] DONE
+
+**Goal:** Users can register, login, manage profile.
+
+### Phase 03 — Catalog & Product Pages                  [x] DONE
+
+**Goal:** Browse products, filter by category/brand/gender, search, sort, view detail.
+
+### Phase 04 — Cart, Checkout, Orders & Payment         [x] DONE
+
+**Goal:** Users can add to cart, checkout, view orders, pay with proof upload.
+
+### Phase 05 — Integration & API Alignment Fix         [x] DONE
+
+**Goal:** Fix 17 critical/high bugs between frontend and real backend API responses.
+
+### Phase 06 — Soft Cupcake Theme Redesign             [x] DONE
+
+**Goal:** Change visual theme from indigo corporate to soft cupcake pastel.
+
+### Phase 07 — Auth Redesign & Icon Upgrade            [x] DONE
+
+**Goal:** Redesign login/register with illustrations, leading icons, password toggle. Upgrade icons across all pages.
+
+### Phase 08 — Stella Monochrome Redesign              [x] DONE
+
+**Goal:** Complete redesign to minimal editorial monochrome Stella aesthetic.
+
+### Phase 09 — Navbar Fix & Background Refinement      [x] DONE
+
+**Goal:** Fix navbar user menu after refresh, finalize pure white backgrounds.
+
+### Phase 10 — Post-Stella Refinements                [x] DONE
+
+**Goal:** Add to cart redirect to /cart, orders filter tabs, cart clear after checkout, user info dropdown, transaksi dibayar button, categories padding fix.
+
+---
+
+## Dependency Graph
+
+```
+01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10
+```
+
+---
+
+## Phase Status Summary
+
+| Phase | Name | Status |
+|:-----:|------|:------:|
+| 01 | Configuration & Project Structure | ✅ DONE |
+| 02 | API Layer & Authentication | ✅ DONE |
+| 03 | Catalog & Product Pages | ✅ DONE |
+| 04 | Cart, Checkout, Orders & Payment | ✅ DONE |
+| 05 | Integration & API Alignment Fix | ✅ DONE |
+| 06 | Soft Cupcake Theme Redesign | ✅ DONE |
+| 07 | Auth Redesign & Icon Upgrade | ✅ DONE |
+| 08 | Stella Monochrome Redesign | ✅ DONE |
+| 09 | Navbar Fix & Background Refinement | ✅ DONE |
+| 10 | Post-Stella Refinements | ✅ DONE |

@@ -1,0 +1,21 @@
+## Verification Checklist
+
+- [x] `/cart` requires auth (redirects to login if not logged in)
+- [x] Empty cart state shows illustration + "Mulai Belanja" button
+- [x] Cart items show with image, name, variant, price, qty controls, subtotal, delete button
+- [x] Qty +/- buttons work, input min 1
+- [x] Delete button shows confirmation before removing
+- [x] Summary sidebar shows subtotal + total item count
+- [x] `/checkout` requires auth
+- [x] Checkout form includes: name, email, phone, address, note, warehouse select
+- [x] Point redeem toggle appears when user has points balance
+- [x] Order summary sidebar shows cart items and final total
+- [x] "Buat Pesanan" button creates order and redirects to order detail
+- [x] `/orders` shows list of orders with order number, status, date, total
+- [x] `/orders/[id]` shows order detail with items, shipment timeline, payment, cost breakdown
+- [x] Shipment timeline uses daisyUI timeline component
+- [x] `/payment/[orderId]` shows payment accounts (radio select)
+- [x] File upload is styled as dashed border drop zone
+- [x] "Kirim Pembayaran" submits and redirects to order detail
+- [x] `StatusBadge` component renders correct color for each status value
+- [x] All pages pass build without errors
