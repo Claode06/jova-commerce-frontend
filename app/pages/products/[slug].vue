@@ -38,7 +38,7 @@
               v-for="img in product.product_images"
               :key="img.id"
               class="w-16 h-16 rounded-xl overflow-hidden border border-gray-200 shrink-0 cursor-pointer"
-              :class="{ 'border-black ring-1 ring-black': selectedImage === getImageUrl(img) }"
+              :class="{ 'border-accent-400 ring-1 ring-accent-400': selectedImage === getImageUrl(img) }"
               @click="selectedImage = getImageUrl(img)"
             >
               <img :src="getImageUrl(img)" alt="" class="w-full h-full object-cover" />
@@ -58,7 +58,7 @@
         <h1 class="text-3xl md:text-4xl font-serif font-bold mb-3 leading-tight">{{ product.name }}</h1>
 
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-sm text-gray-500">{{ Number(product.avg_rating || 0).toFixed(1) }} ★ ({{ product.reviews_count || 0 }} ulasan)</span>
+          <span class="text-sm text-accent-400">{{ Number(product.avg_rating || 0).toFixed(1) }} ★ ({{ product.reviews_count || 0 }} ulasan)</span>
         </div>
 
         <!-- Price -->
@@ -85,7 +85,7 @@
               v-for="v in product.product_variants"
               :key="v.id"
               class="px-4 py-2 text-sm border border-gray-200 rounded-full transition-all"
-              :class="selectedVariant?.id === v.id ? 'bg-black text-white border-black' : 'hover:border-gray-400 text-gray-700'"
+              :class="selectedVariant?.id === v.id ? 'bg-accent-400 text-white border-accent-400' : 'hover:border-accent-400 text-gray-700'"
               @click="selectVariant(v)"
             >
               {{ v.label }}
@@ -97,14 +97,14 @@
         <!-- Quantity & Add to Cart -->
         <div class="flex items-center gap-4 mb-6">
           <div class="flex items-center border border-gray-200 rounded-full overflow-hidden">
-            <button class="w-10 h-10 flex items-center justify-center text-lg hover:bg-gray-50 transition-colors" :disabled="qty <= 1" @click="qty--">−</button>
+            <button class="w-10 h-10 flex items-center justify-center text-lg hover:bg-accent-50 transition-colors" :disabled="qty <= 1" @click="qty--">−</button>
             <span class="px-5 text-sm font-medium min-w-[3rem] text-center">{{ qty }}</span>
-            <button class="w-10 h-10 flex items-center justify-center text-lg hover:bg-gray-50 transition-colors" @click="qty++">+</button>
+            <button class="w-10 h-10 flex items-center justify-center text-lg hover:bg-accent-50 transition-colors" @click="qty++">+</button>
           </div>
         </div>
 
         <button
-          class="w-full md:w-auto px-12 py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          class="w-full md:w-auto px-12 py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           :disabled="!canAddToCart"
           @click="addToCart"
         >
@@ -115,9 +115,9 @@
         <!-- Description -->
         <div class="mt-12 border-t border-gray-100 pt-8">
           <div class="flex gap-8 border-b border-gray-100 pb-4">
-            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'desc' ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600'" @click="activeTab = 'desc'">Deskripsi</button>
-            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'features' ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600'" @click="activeTab = 'features'">Fitur</button>
-            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'reviews' ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600'" @click="activeTab = 'reviews'">Ulasan</button>
+            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'desc' ? 'border-accent-400 text-accent-400' : 'border-transparent text-gray-400 hover:text-accent-400'" @click="activeTab = 'desc'">Deskripsi</button>
+            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'features' ? 'border-accent-400 text-accent-400' : 'border-transparent text-gray-400 hover:text-accent-400'" @click="activeTab = 'features'">Fitur</button>
+            <button class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors -mb-[1.1rem]" :class="activeTab === 'reviews' ? 'border-accent-400 text-accent-400' : 'border-transparent text-gray-400 hover:text-accent-400'" @click="activeTab = 'reviews'">Ulasan</button>
           </div>
           <div class="py-6 text-sm text-gray-600 leading-relaxed">
             <div v-if="activeTab === 'desc'">{{ product.description || 'Tidak ada deskripsi' }}</div>
@@ -129,7 +129,7 @@
                     <div class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 text-xs flex items-center justify-center">{{ review.user?.name?.[0] || 'U' }}</div>
                     <div>
                       <p class="text-sm font-medium text-gray-700">{{ review.user?.name || 'User' }}</p>
-                      <span class="text-xs text-gray-400">{{ review.rating }} ★</span>
+                      <span class="text-xs text-accent-400">{{ review.rating }} ★</span>
                     </div>
                   </div>
                   <p class="text-sm text-gray-600 mt-1">{{ review.reason || '—' }}</p>
@@ -143,9 +143,9 @@
     </div>
 
     <div v-else class="text-center py-20">
-      <Icon name="heroicons:exclamation-triangle" class="w-16 h-16 mx-auto text-gray-200 mb-4" />
+      <Icon name="heroicons:exclamation-triangle" class="w-16 h-16 mx-auto text-accent-200 mb-4" />
       <p class="text-gray-400 mb-4">Produk tidak ditemukan</p>
-      <NuxtLink to="/products" class="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors">Kembali ke Katalog</NuxtLink>
+      <NuxtLink to="/products" class="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors">Kembali ke Katalog</NuxtLink>
     </div>
   </div>
 </template>
@@ -155,6 +155,7 @@ const route = useRoute()
 const { fetchProduct } = useCatalog()
 const { addItem } = useCart()
 const auth = useAuth()
+const { show: showToast } = useToast()
 
 const loading = ref(true)
 const product = ref<any>(null)
@@ -182,6 +183,7 @@ async function addToCart() {
   }
 
   await addItem(selectedVariant.value.id, qty.value)
+  showToast('Ditambahkan ke keranjang')
   navigateTo('/cart')
 }
 

@@ -53,6 +53,38 @@ Customer-facing e-commerce frontend yang mengonsumsi API jova-mart-backend. Meli
 
 **Goal:** Add to cart redirect to /cart, orders filter tabs, cart clear after checkout, user info dropdown, transaksi dibayar button, categories padding fix.
 
+### Phase 11 — Critical Bug Fixes                     [x] DONE
+
+**Goal:** Fix 3 critical bugs: shared cart state (Pinia store), profile error display, product search/filter URL sync.
+
+### Phase 12 — UX Improvements                        [x] DONE
+
+**Goal:** Fix 7 UX issues: dead links, category images, form indentation, remember me, toast notifications, filter URL sync.
+
+### Phase 13 — Polish & Consistency                   [x] DONE
+
+**Goal:** Fix 5 polish issues: form style consistency, language consistency, env example, checkout loading, payment page styling.
+
+### Phase 14 — QA Bug Fixes                           [x] DONE
+
+**Goal:** Fix 3 bugs found during QA: dropdown click-outside, search blur race condition, cart not cleared on logout.
+
+### Phase 15 — Amber Gold Accent System                [x] DONE
+
+**Goal:** Introduce amber gold (#D4A574) as a secondary accent color across the UI — ratings, filter chips, tabs, pagination, badges, form focus borders — while preserving the monochrome Stella foundation.
+
+### Phase 16 — Bold Accent: Topbar & Hero               [x] DONE
+
+**Goal:** Strengthen the amber gold accent on the topbar (glassmorphism header, gradient brand, accent icons/badge/buttons) and hero section (gradient overlay, accent CTA button).
+
+### Phase 17 — Stronger Amber Palette                  [x] DONE
+
+**Goal:** Replace accent palette with richer, more saturated golden amber shades for stronger visual impact while maintaining elegance.
+
+### Phase 18 — Accent Expansion: All Sections            [x] DONE
+
+**Goal:** Apply amber gold accent to all remaining sections — discount badges, CTA button hovers, gallery thumbnails, empty state icons, order cards, category overlays, quantity controls, and decorative elements.
+
 ---
 
 ## Dependency Graph
@@ -77,3 +109,11 @@ Customer-facing e-commerce frontend yang mengonsumsi API jova-mart-backend. Meli
 | 08 | Stella Monochrome Redesign | ✅ DONE |
 | 09 | Navbar Fix & Background Refinement | ✅ DONE |
 | 10 | Post-Stella Refinements | ✅ DONE |
+| 11 | Critical Bug Fixes | ✅ DONE |
+| 12 | UX Improvements | ✅ DONE |
+| 13 | Polish & Consistency | ✅ DONE |
+| 14 | QA Bug Fixes | ✅ DONE |
+| 15 | Amber Gold Accent System | ✅ DONE |
+| 16 | Bold Accent: Topbar & Hero | ✅ DONE |
+| 17 | Stronger Amber Palette | ✅ DONE |
+| 18 | Accent Expansion: All Sections | ✅ DONE |

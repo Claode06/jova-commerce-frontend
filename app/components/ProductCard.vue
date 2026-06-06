@@ -1,12 +1,12 @@
 <template>
   <NuxtLink v-if="product.slug" :to="`/products/${product.slug}`" class="block group">
-    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square">
+    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square ring-1 ring-accent-200/0 group-hover:ring-accent-200 transition-all duration-500">
       <img
         :src="thumbnail"
         :alt="product.name"
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
       />
-      <div v-if="discountPercent" class="absolute top-3 left-3 bg-black text-white text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full">
+      <div v-if="discountPercent" class="absolute top-3 left-3 bg-accent-400 text-white text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full">
         -{{ discountPercent }}%
       </div>
     </div>
@@ -15,7 +15,7 @@
       <h3 class="text-sm font-medium text-black mt-0.5 leading-snug line-clamp-2">{{ product.name }}</h3>
       <div class="flex items-center gap-2 mt-1">
         <span class="text-sm font-medium text-black">Rp {{ formatPrice(minPrice) }}</span>
-        <span v-if="product.avg_rating" class="text-[11px] text-gray-400">{{ Number(product.avg_rating).toFixed(1) }} ★</span>
+        <span v-if="product.avg_rating" class="text-[11px] text-accent-400">{{ Number(product.avg_rating).toFixed(1) }} ★</span>
       </div>
     </div>
   </NuxtLink>

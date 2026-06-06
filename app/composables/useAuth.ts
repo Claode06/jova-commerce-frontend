@@ -55,6 +55,7 @@ export const useAuth = () => {
     await useApi('/logout', { method: 'POST' })
     token.value = null
     user.value = null
+    useCartStore().clearCart()
     navigateTo('/login')
   }
 

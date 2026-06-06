@@ -8,7 +8,7 @@
         v-for="tab in tabs"
         :key="tab.key"
         class="text-xs uppercase tracking-widest pb-4 border-b-2 transition-colors whitespace-nowrap -mb-[1.1rem]"
-        :class="activeTab === tab.key ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600'"
+        :class="activeTab === tab.key ? 'border-accent-400 text-accent-400' : 'border-transparent text-gray-400 hover:text-accent-400'"
         @click="activeTab = tab.key"
       >
         {{ tab.label }}
@@ -21,11 +21,11 @@
     </div>
 
     <div v-else-if="!filteredOrders.length" class="text-center py-20">
-      <Icon name="heroicons:shopping-bag" class="w-16 h-16 mx-auto text-gray-200 mb-4" />
+      <Icon name="heroicons:shopping-bag" class="w-16 h-16 mx-auto text-accent-200 mb-4" />
       <p class="text-gray-400 mb-4 text-sm">
         {{ activeTab === 'all' ? 'Belum ada pesanan' : 'Tidak ada pesanan dengan status ini' }}
       </p>
-      <NuxtLink to="/products" class="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors">Mulai Belanja</NuxtLink>
+      <NuxtLink to="/products" class="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors">Mulai Belanja</NuxtLink>
     </div>
 
     <div v-else class="space-y-4">
@@ -33,7 +33,7 @@
         v-for="order in filteredOrders"
         :key="order.id"
         :to="`/orders/${order.id}`"
-        class="block p-5 bg-white border border-gray-100 rounded-3xl hover:border-gray-200 transition-colors"
+        class="block p-5 bg-white border border-gray-100 rounded-3xl hover:border-accent-200 transition-colors"
       >
         <div class="flex items-center justify-between mb-2">
           <span class="text-sm font-mono text-gray-700">{{ order.order_number }}</span>

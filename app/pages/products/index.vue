@@ -27,7 +27,7 @@
                   name="category"
                   :value="cat.slug"
                   :checked="filters.category === cat.slug"
-                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-black"
+                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-accent-400"
                   @change="setFilter('category', cat.slug)"
                 />
                 <span class="text-sm text-gray-700">{{ cat.name }}</span>
@@ -35,7 +35,7 @@
               </label>
               <button
                 v-if="filters.category"
-                class="text-[10px] text-gray-400 hover:text-black uppercase tracking-wider mt-1 transition-colors"
+                class="text-[10px] text-gray-400 hover:text-accent-400 uppercase tracking-wider mt-1 transition-colors"
                 @click="clearFilter('category')"
               >
                 Semua Kategori
@@ -57,18 +57,18 @@
                   name="brand"
                   :value="brand.slug"
                   :checked="filters.brand === brand.slug"
-                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-black"
+                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-accent-400"
                   @change="setFilter('brand', brand.slug)"
                 />
                 <span class="text-sm text-gray-700">{{ brand.name }}</span>
               </label>
-              <button
-                v-if="filters.brand"
-                class="text-[10px] text-gray-400 hover:text-black uppercase tracking-wider mt-1 transition-colors"
-                @click="clearFilter('brand')"
-              >
-                Semua Brand
-              </button>
+                <button
+                  v-if="filters.brand"
+                  class="text-[10px] text-gray-400 hover:text-accent-400 uppercase tracking-wider mt-1 transition-colors"
+                  @click="clearFilter('brand')"
+                >
+                  Semua Brand
+                </button>
             </div>
           </div>
 
@@ -82,18 +82,18 @@
                   name="gender"
                   :value="g.value"
                   :checked="filters.gender === g.value"
-                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-black"
+                  class="w-3.5 h-3.5 border border-gray-300 rounded-full accent-accent-400"
                   @change="setFilter('gender', g.value)"
                 />
                 <span class="text-sm text-gray-700">{{ g.label }}</span>
               </label>
-              <button
-                v-if="filters.gender"
-                class="text-[10px] text-gray-400 hover:text-black uppercase tracking-wider mt-1 transition-colors"
-                @click="clearFilter('gender')"
-              >
-                Semua Gender
-              </button>
+                <button
+                  v-if="filters.gender"
+                  class="text-[10px] text-gray-400 hover:text-accent-400 uppercase tracking-wider mt-1 transition-colors"
+                  @click="clearFilter('gender')"
+                >
+                  Semua Gender
+                </button>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
           <p class="text-xs text-gray-400 font-light">
             Menampilkan {{ products?.from || 0 }} - {{ products?.to || 0 }} dari {{ products?.total || 0 }} produk
           </p>
-          <select v-model="filters.sort" class="text-xs border border-gray-200 rounded-full px-4 py-2 bg-white focus:border-black focus:outline-none" @change="loadProducts(1)">
+          <select v-model="filters.sort" class="text-xs border border-gray-200 rounded-full px-4 py-2 bg-white focus:border-accent-400 focus:outline-none" @change="loadProducts(1)">
             <option value="newest">Terbaru</option>
             <option value="price_asc">Harga Terendah</option>
             <option value="price_desc">Harga Tertinggi</option>
@@ -116,19 +116,19 @@
 
         <!-- Active Filters -->
         <div v-if="hasActiveFilters" class="flex flex-wrap gap-2 mb-6">
-          <div class="inline-flex items-center gap-1 text-[11px] bg-gray-100 text-gray-600 rounded-full px-3 py-1" v-if="filters.category">
+          <div class="inline-flex items-center gap-1 text-[11px] bg-accent-50 text-accent-600 rounded-full px-3 py-1" v-if="filters.category">
             {{ getCategoryName(filters.category) }}
-            <button @click="clearFilter('category')" class="text-gray-400 hover:text-black ml-0.5">✕</button>
+            <button @click="clearFilter('category')" class="text-gray-400 hover:text-accent-400 ml-0.5">✕</button>
           </div>
-          <div class="inline-flex items-center gap-1 text-[11px] bg-gray-100 text-gray-600 rounded-full px-3 py-1" v-if="filters.brand">
+          <div class="inline-flex items-center gap-1 text-[11px] bg-accent-50 text-accent-600 rounded-full px-3 py-1" v-if="filters.brand">
             {{ getBrandName(filters.brand) }}
-            <button @click="clearFilter('brand')" class="text-gray-400 hover:text-black ml-0.5">✕</button>
+            <button @click="clearFilter('brand')" class="text-gray-400 hover:text-accent-400 ml-0.5">✕</button>
           </div>
-          <div class="inline-flex items-center gap-1 text-[11px] bg-gray-100 text-gray-600 rounded-full px-3 py-1" v-if="filters.gender">
+          <div class="inline-flex items-center gap-1 text-[11px] bg-accent-50 text-accent-600 rounded-full px-3 py-1" v-if="filters.gender">
             {{ filters.gender === 1 ? 'Wanita' : filters.gender === 2 ? 'Pria' : 'Unisex' }}
-            <button @click="clearFilter('gender')" class="text-gray-400 hover:text-black ml-0.5">✕</button>
+            <button @click="clearFilter('gender')" class="text-gray-400 hover:text-accent-400 ml-0.5">✕</button>
           </div>
-          <button class="text-[11px] text-gray-400 hover:text-black underline-offset-2 hover:underline transition-colors" @click="clearAllFilters">Hapus Semua</button>
+          <button class="text-[11px] text-gray-400 hover:text-accent-400 underline-offset-2 hover:underline transition-colors" @click="clearAllFilters">Hapus Semua</button>
         </div>
 
         <!-- Loading -->
@@ -145,7 +145,7 @@
 
         <!-- Empty -->
         <div v-else-if="!products?.data?.length" class="text-center py-20">
-          <Icon name="heroicons:magnifying-glass-circle" class="w-16 h-16 mx-auto text-gray-200 mb-4" />
+          <Icon name="heroicons:magnifying-glass-circle" class="w-16 h-16 mx-auto text-accent-200 mb-4" />
           <p class="text-gray-400 text-sm">Tidak ada produk ditemukan</p>
           <button class="inline-block mt-4 text-xs text-gray-400 hover:text-black underline transition-colors" @click="clearAllFilters">Reset Filter</button>
         </div>
@@ -168,7 +168,7 @@
             v-for="p in products.last_page"
             :key="p"
             class="w-9 h-9 flex items-center justify-center text-sm rounded-full border transition-colors"
-            :class="p === products.current_page ? 'bg-black text-white border-black' : 'border-gray-200 hover:border-black text-gray-600'"
+            :class="p === products.current_page ? 'bg-accent-400 text-white border-accent-400' : 'border-gray-200 hover:border-accent-400 text-gray-600'"
             @click="loadProducts(p)"
           >
             {{ p }}
@@ -189,6 +189,7 @@
 <script setup lang="ts">
 const { fetchProducts, fetchCategories, fetchBrands } = useCatalog()
 const route = useRoute()
+const router = useRouter()
 
 const loading = ref(false)
 const products = ref<any>(null)
@@ -211,13 +212,25 @@ const filters = reactive({
 
 const hasActiveFilters = computed(() => filters.category || filters.brand || filters.gender)
 
+function syncUrl() {
+  const query: Record<string, string> = {}
+  if (filters.category) query.category = filters.category
+  if (filters.brand) query.brand = filters.brand
+  if (filters.gender) query.gender = String(filters.gender)
+  if (filters.search) query.search = filters.search
+  if (filters.sort && filters.sort !== 'newest') query.sort = filters.sort
+  router.replace({ query })
+}
+
 function setFilter(key: string, value: any) {
   ;(filters as any)[key] = value
+  syncUrl()
   loadProducts(1)
 }
 
 function clearFilter(key: string) {
   ;(filters as any)[key] = key === 'gender' ? null : ''
+  syncUrl()
   loadProducts(1)
 }
 
@@ -225,7 +238,9 @@ function clearAllFilters() {
   filters.category = ''
   filters.brand = ''
   filters.gender = null
+  filters.search = ''
   filters.sort = 'newest'
+  router.replace({ query: {} })
   loadProducts(1)
 }
 
@@ -254,6 +269,15 @@ async function loadProducts(page = 1) {
     loading.value = false
   }
 }
+
+watch(() => route.query, (query) => {
+  filters.category = (query.category as string) || ''
+  filters.brand = (query.brand as string) || ''
+  filters.gender = query.gender ? Number(query.gender) : null
+  filters.search = (query.search as string) || ''
+  filters.sort = (query.sort as string) || 'newest'
+  loadProducts(1)
+})
 
 onMounted(async () => {
   const [cats, brds] = await Promise.all([fetchCategories(), fetchBrands()])

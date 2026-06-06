@@ -7,14 +7,15 @@
           <Icon name="heroicons:sparkles" class="w-40 h-40 text-white/10" />
         </div>
       </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-accent-600/15 via-transparent to-black pointer-events-none"></div>
       <div class="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-16">
         <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-none max-w-2xl text-balance">
           Fashion & Beauty
         </h1>
-        <p class="text-white/50 text-base md:text-lg mt-4 max-w-md font-light leading-relaxed">
+        <p class="text-white/60 text-base md:text-lg mt-4 max-w-md font-light leading-relaxed">
           Temukan gaya terbaik Anda dengan koleksi fashion dan kecantikan eksklusif
         </p>
-        <NuxtLink to="/products" class="inline-block mt-8 text-sm font-medium text-white border border-white/30 rounded-full px-8 py-3 hover:bg-white hover:text-black transition-all duration-500">
+        <NuxtLink to="/products" class="inline-block mt-8 text-sm font-medium text-white border border-accent-400/50 rounded-full px-8 py-3 hover:bg-accent-400 hover:text-white hover:border-accent-400 transition-all duration-500">
           Belanja Sekarang
         </NuxtLink>
       </div>
@@ -25,7 +26,7 @@
       <div class="px-6 md:px-12">
         <div class="flex items-end justify-between mb-10">
           <h2 class="text-3xl md:text-4xl font-serif font-bold text-balance">Kategori</h2>
-          <NuxtLink to="/products" class="hidden md:block text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors">
+          <NuxtLink to="/products" class="hidden md:block text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-accent-400 transition-colors">
             Lihat Semua
           </NuxtLink>
         </div>
@@ -37,9 +38,10 @@
             class="relative min-w-[240px] md:min-w-[300px] snap-start group rounded-3xl overflow-hidden bg-gray-50 flex-shrink-0"
           >
             <div class="w-full h-72 md:h-96 bg-gray-50 flex items-center justify-center">
-              <Icon name="heroicons:tag" class="w-12 h-12 md:w-16 md:h-16 text-gray-200" />
+              <img v-if="cat.file_storage?.link || cat.image_url" :src="cat.file_storage?.link || cat.image_url" :alt="cat.name" class="w-full h-full object-cover" />
+              <Icon v-else name="heroicons:tag" class="w-12 h-12 md:w-16 md:h-16 text-gray-200" />
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group-hover:from-black/50 transition-colors duration-500"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-accent-600/10 to-transparent group-hover:from-black/50 transition-colors duration-500"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5 md:p-6">
               <p class="text-white text-base md:text-lg font-serif font-bold">{{ cat.name }}</p>
               <p class="text-white/60 text-xs md:text-sm mt-1">{{ cat.products_count || 0 }} produk</p>
@@ -47,7 +49,7 @@
           </NuxtLink>
         </div>
         <div class="mt-8 text-center md:hidden">
-          <NuxtLink to="/products" class="text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors">
+          <NuxtLink to="/products" class="text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-accent-400 transition-colors">
             Lihat Semua
           </NuxtLink>
         </div>
@@ -59,7 +61,7 @@
       <div class="px-6 md:px-12">
         <div class="flex items-end justify-between mb-10">
           <h2 class="text-3xl md:text-4xl font-serif font-bold text-balance">Produk Terbaru</h2>
-          <NuxtLink to="/products" class="hidden md:block text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors">
+          <NuxtLink to="/products" class="hidden md:block text-[11px] uppercase tracking-[0.2em] text-gray-400 hover:text-accent-400 transition-colors">
             Lihat Semua
           </NuxtLink>
         </div>

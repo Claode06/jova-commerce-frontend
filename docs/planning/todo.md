@@ -109,3 +109,80 @@
 - [x] "Transaksi Dibayar" button → /orders?tab=paid
 - [x] Categories section padding aligned with other sections
 - [x] Product images changed to square aspect-ratio
+
+## Phase 11 — Critical Bug Fixes
+
+- [x] Create `stores/cart.ts` Pinia store with shared cart state
+- [x] Refactor `useCart.ts` to delegate to Pinia store (`storeToRefs` + methods)
+- [x] Update `default.vue` — use shared cart state for badge, fetch cart on mount
+- [x] Fix `products/index.vue` — add route query watcher + URL sync for filters
+- [x] Build passes with 0 errors
+
+## Phase 12 — UX Improvements
+
+- [x] Remove dead link "Lupa kata sandi?" from `login.vue`
+- [x] Fix footer dead links in `default.vue` (info → span, email/tel → proper hrefs)
+- [x] Render category image in `index.vue` if API provides it (fallback to icon)
+- [x] Fix indentation in `profile.vue` form-control third block
+- [x] Remove non-functional "Remember me" checkbox from `login.vue`
+- [x] Create `composables/useToast.ts` + renderer in layout
+- [x] Inject toast into add-to-cart, profile save, cart remove
+- [x] Build passes with 0 errors
+
+## Phase 13 — Polish & Consistency
+
+- [x] Rewrite `profile.vue` form (daisyUI → raw Tailwind)
+- [x] Fix language inconsistency (english headings → Bahasa Indonesia)
+- [x] Create `.env.example` file
+- [x] Add loading skeleton for checkout warehouse/points fetch
+- [x] Rewrite `payment/[orderId].vue` (remove daisyUI classes → Stella monochrome)
+- [x] Build passes with 0 errors
+
+## Phase 14 — QA Bug Fixes
+
+- [x] Fix `default.vue` — replace `@click.outside` with manual `document.addEventListener('click')` + `dropdownRef`
+- [x] Fix `default.vue` — fix search `@blur` race condition with `closeSearch()` using `setTimeout(150ms)`
+- [x] Fix `useAuth.ts` — add `useCartStore().clearCart()` in `logout()`
+- [x] Build passes with 0 errors
+
+## Phase 15 — Amber Gold Accent System
+
+- [x] Add `@theme` accent color tokens in `main.css` (50, 100, 200, 400, 600)
+- [x] Update `ProductCard.vue` — rating stars to `text-accent-400`
+- [x] Update `index.vue` — "Lihat Semua" hover to accent
+- [x] Update `products/index.vue` — filter chips (bg-accent-50), radio (accent-accent-400), pagination active (bg-accent-400), sort focus (border-accent-400)
+- [x] Update `products/[slug].vue` — tab underline, variant selected, rating stars to accent
+- [x] Update `orders/index.vue` — tab active underline to accent
+- [x] Update `default.vue` — social icon footer hover to accent
+- [x] Update focus borders on all form pages (login, register, checkout, profile) — `focus:border-accent-400`
+- [x] Update `payment/[orderId].vue` — selected account border, upload hover to accent
+- [x] Update `StatusBadge.vue` — pill badges with background tinted variants (accent-50/accent-100/gray-100/red-50)
+- [x] Build passes with 0 errors
+
+## Phase 16 — Bold Accent: Topbar & Hero
+
+- [x] Add `.text-gradient-accent` utility in `main.css`
+- [x] Update `default.vue` — topbar: glassmorphism (`bg-white/90 backdrop-blur-md`), accent border, gradient brand, icon hover accent, cart badge accent, avatar ring, login/register accent, mobile search accent
+- [x] Update `index.vue` — hero: accent gradient overlay (`from-accent-600/15 via-transparent to-black`), accent CTA button, text subtitle opacity
+- [x] Build passes with 0 errors
+
+## Phase 17 — Stronger Amber Palette
+
+- [x] Updated accent token values in `main.css` @theme block to richer shades
+- [x] Build passes with 0 errors
+
+## Phase 18 — Accent Expansion: All Sections
+
+- [x] ProductCard.vue — discount badge to `bg-accent-400`, hover ring `ring-accent-200`
+- [x] index.vue — category gradient with `via-accent-600/10`
+- [x] products/[slug].vue — gallery thumbnails accent, quantity hover accent, add-to-cart button hover accent
+- [x] cart.vue — checkout button hover accent, continue link hover accent, empty icon accent
+- [x] checkout.vue — order button hover accent, point checkbox accent
+- [x] login.vue — submit button hover accent
+- [x] register.vue — submit button hover accent
+- [x] profile.vue — submit button hover accent
+- [x] payment/[orderId].vue — submit button hover accent
+- [x] orders/index.vue — card hover border accent, empty state icon accent, empty CTA hover accent
+- [x] products/index.vue — empty search icon accent
+- [x] products/[slug].vue — not found icon accent
+- [x] Build passes with 0 errors

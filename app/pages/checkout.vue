@@ -2,7 +2,35 @@
   <div class="max-w-4xl mx-auto px-6 py-12">
     <h1 class="text-3xl font-serif font-bold mb-12">Checkout</h1>
 
-    <div class="flex flex-col lg:flex-row gap-8">
+    <div v-if="pageLoading" class="flex flex-col lg:flex-row gap-8">
+      <div class="flex-1">
+        <div class="p-8 bg-white border border-gray-100 rounded-3xl space-y-6">
+          <div class="skeleton h-6 w-48 mb-6"></div>
+          <div class="skeleton h-24 w-full rounded-2xl"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="skeleton h-12 w-full rounded-2xl"></div>
+            <div class="skeleton h-12 w-full rounded-2xl"></div>
+          </div>
+          <div class="skeleton h-12 w-full rounded-2xl"></div>
+          <div class="skeleton h-12 w-full rounded-full"></div>
+        </div>
+      </div>
+      <div class="w-full lg:w-80">
+        <div class="p-6 bg-gray-50 rounded-3xl space-y-4">
+          <div class="skeleton h-4 w-32"></div>
+          <div class="flex items-center gap-3">
+            <div class="skeleton w-10 h-10 rounded-xl"></div>
+            <div class="flex-1 space-y-2">
+              <div class="skeleton h-3 w-3/4"></div>
+              <div class="skeleton h-3 w-1/2"></div>
+            </div>
+          </div>
+          <div class="skeleton h-12 w-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <div v-else class="flex flex-col lg:flex-row gap-8">
       <!-- Form -->
       <div class="flex-1">
         <form @submit.prevent="placeOrder" class="p-8 bg-white border border-gray-100 rounded-3xl space-y-6">
@@ -14,7 +42,7 @@
               <span class="absolute top-3 left-4 pointer-events-none text-gray-300 z-[1]">
                 <Icon name="heroicons:map-pin" class="w-4 h-4" />
               </span>
-              <textarea v-model="form.shipping_address" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors resize-none pl-11" rows="3" required></textarea>
+              <textarea v-model="form.shipping_address" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors resize-none pl-11" rows="3" required></textarea>
             </div>
           </div>
 
@@ -25,7 +53,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-300 z-[1]">
                   <Icon name="heroicons:building-storefront" class="w-4 h-4" />
                 </span>
-                <select v-model="form.warehouse_id" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors appearance-none pl-11 bg-white" required>
+                <select v-model="form.warehouse_id" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors appearance-none pl-11 bg-white" required>
                   <option value="" disabled>Pilih wilayah</option>
                   <option v-for="w in warehouses" :key="w.id" :value="w.id">{{ w.name }} - {{ w.city }}</option>
                 </select>
@@ -37,7 +65,7 @@
                 <span class="absolute top-3 left-4 pointer-events-none text-gray-300 z-[1]">
                   <Icon name="heroicons:pencil" class="w-4 h-4" />
                 </span>
-                <textarea v-model="form.shipping_note" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors resize-none pl-11" rows="2"></textarea>
+                <textarea v-model="form.shipping_note" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors resize-none pl-11" rows="2"></textarea>
               </div>
             </div>
           </div>
@@ -48,14 +76,14 @@
               <span class="absolute top-3 left-4 pointer-events-none text-gray-300 z-[1]">
                 <Icon name="heroicons:pencil-square" class="w-4 h-4" />
               </span>
-              <textarea v-model="form.note" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors resize-none pl-11" rows="2"></textarea>
+              <textarea v-model="form.note" class="w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors resize-none pl-11" rows="2"></textarea>
             </div>
           </div>
 
           <!-- Point Redeem -->
           <div v-if="userPoint && userPoint.balance > 0" class="border-t border-gray-100 pt-6">
             <label class="flex items-center gap-2">
-              <input type="checkbox" v-model="redeemPoints" class="w-4 h-4 border border-gray-300 rounded accent-black" />
+              <input type="checkbox" v-model="redeemPoints" class="w-4 h-4 border border-gray-300 rounded accent-accent-400" />
               <span class="text-sm text-gray-700">Tukarkan poin ({{ userPoint.balance }} poin = Rp {{ formatPrice(userPoint.balance) }})</span>
             </label>
           </div>
@@ -65,7 +93,7 @@
             <span>{{ error }}</span>
           </div>
 
-          <button type="submit" class="w-full py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50" :disabled="submitting">
+          <button type="submit" class="w-full py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors disabled:opacity-50" :disabled="submitting">
             <span v-if="submitting" class="loading loading-spinner loading-sm"></span>
             <span v-else>Buat Pesanan</span>
           </button>
@@ -117,6 +145,7 @@ definePageMeta({
 const router = useRouter()
 const { cart, subtotal, fetchCart, clearCart } = useCart()
 
+const pageLoading = ref(true)
 const warehouses = ref<any[]>([])
 const userPoint = ref<any>(null)
 const redeemPoints = ref(false)
@@ -175,6 +204,7 @@ onMounted(async () => {
   await fetchCart()
 
   if (!cart.value.length) {
+    pageLoading.value = false
     router.push('/cart')
     return
   }
@@ -188,5 +218,7 @@ onMounted(async () => {
 
   const pointsRaw = ptRes.data.value
   userPoint.value = pointsRaw?.balance ? { balance: pointsRaw.balance } : null
+
+  pageLoading.value = false
 })
 </script>

@@ -4,6 +4,14 @@
   themes: light --default;
 }
 
+@theme {
+  --color-accent-50: #fdf4e8;
+  --color-accent-100: #fce6cc;
+  --color-accent-200: #f5c68a;
+  --color-accent-400: #c7893f;
+  --color-accent-600: #9e6b2e;
+}
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -33,5 +41,11 @@
   }
   .text-balance {
     text-wrap: balance;
+  }
+  .text-gradient-accent {
+    background-image: linear-gradient(to right, var(--color-accent-600), var(--color-accent-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

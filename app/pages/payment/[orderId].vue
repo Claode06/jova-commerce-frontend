@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto px-4 py-6 max-w-xl">
-    <h1 class="text-xl font-bold mb-6">Pembayaran</h1>
+  <div class="max-w-xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-serif font-bold mb-10">Pembayaran</h1>
 
     <div v-if="loading" class="space-y-4">
       <div class="skeleton h-48 w-full rounded-xl"></div>
@@ -9,35 +9,35 @@
 
     <template v-else>
       <!-- Order Info -->
-      <div class="card bg-white border border-gray-200/60 shadow-sm mb-4">
-        <div class="card-body p-5">
+      <div class="bg-white border border-gray-100 rounded-3xl mb-4">
+        <div class="p-6">
           <p class="text-sm text-gray-400">Pesanan</p>
-          <p class="font-bold font-mono">{{ order?.order_number }}</p>
-          <p class="text-2xl font-bold text-primary mt-2">Rp {{ formatPrice(order?.total || 0) }}</p>
+          <p class="font-bold font-mono text-black">{{ order?.order_number }}</p>
+          <p class="text-2xl font-bold text-black mt-2">Rp {{ formatPrice(order?.total || 0) }}</p>
         </div>
       </div>
 
       <!-- Payment Accounts -->
-      <div class="card bg-white border border-gray-200/60 shadow-sm mb-4">
-        <div class="card-body p-5">
-          <h3 class="font-semibold mb-3">Transfer ke:</h3>
+      <div class="bg-white border border-gray-100 rounded-3xl mb-4">
+        <div class="p-6">
+          <h3 class="text-sm font-semibold text-black mb-4">Transfer ke:</h3>
           <div class="space-y-3">
             <label
               v-for="acc in paymentAccounts"
               :key="acc.id"
               class="flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-colors"
-              :class="selectedAccount === acc.id ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-base-300'"
+              :class="selectedAccount === acc.id ? 'border-accent-400 bg-accent-50' : 'border-gray-200 hover:border-accent-400'"
             >
               <input
                 type="radio"
                 name="payment_account"
                 :value="acc.id"
                 v-model="selectedAccount"
-                class="radio radio-primary radio-sm"
+                class="w-4 h-4 border border-gray-300 rounded-full accent-black"
               />
               <div>
-                <p class="text-sm font-medium">{{ acc.bank_name }}</p>
-                <p class="text-xs text-gray-400">{{ acc.account_number }} <span class="text-base-content/50">a.n.</span> {{ acc.account_name }}</p>
+                <p class="text-sm font-medium text-black">{{ acc.bank_name }}</p>
+                <p class="text-xs text-gray-400">{{ acc.account_number }} <span class="text-gray-400">a.n.</span> {{ acc.account_name }}</p>
               </div>
             </label>
           </div>
@@ -45,16 +45,16 @@
       </div>
 
       <!-- Upload Proof -->
-      <div class="card bg-white border border-gray-200/60 shadow-sm">
-        <div class="card-body p-5">
-          <h3 class="font-semibold mb-3">Upload Bukti Bayar</h3>
+      <div class="bg-white border border-gray-100 rounded-3xl">
+        <div class="p-6">
+          <h3 class="text-sm font-semibold text-black mb-4">Upload Bukti Bayar</h3>
           <div
-            class="border-2 border-dashed border-base-300/60 rounded-2xl p-6 text-center cursor-pointer hover:border-secondary/40 transition-colors"
+            class="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center cursor-pointer hover:border-accent-400 transition-colors"
             @click="fileInput?.click()"
           >
             <Icon name="heroicons:cloud-arrow-up" class="w-12 h-12 mx-auto text-gray-200 mb-2" />
             <p class="text-sm text-gray-300">Klik untuk upload bukti transfer</p>
-            <p class="text-xs text-base-content/30 mt-1">PNG, JPG (max 5MB)</p>
+            <p class="text-xs text-gray-300 mt-1">PNG, JPG (max 5MB)</p>
             <input
               ref="fileInput"
               type="file"
@@ -68,13 +68,13 @@
             <img :src="previewUrl" alt="Preview" class="w-full h-48 object-cover rounded-xl" />
           </div>
 
-          <div v-if="error" class="alert alert-error text-sm p-3 mt-4">
+          <div v-if="error" class="bg-red-50 text-red-600 text-sm p-4 rounded-2xl border border-red-100 flex items-center gap-2 mt-4">
             <Icon name="heroicons:exclamation-circle" class="w-5 h-5 shrink-0" />
             <span>{{ error }}</span>
           </div>
 
           <button
-            class="btn btn-soft btn-primary w-full mt-4 rounded-full"
+            class="w-full py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors disabled:opacity-40 mt-4"
             :disabled="!selectedAccount || !proofFile || submitting"
             @click="submitPayment"
           >

@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen flex items-center justify-center px-6 py-20 bg-white">
     <div class="w-full max-w-md">
-      <h1 class="text-3xl font-serif font-bold text-center mb-2">Welcome Back</h1>
-      <p class="text-sm text-gray-400 text-center mb-10">Sign in to your account</p>
+      <h1 class="text-3xl font-serif font-bold text-center mb-2">Selamat Datang</h1>
+      <p class="text-sm text-gray-400 text-center mb-10">Masuk ke akun Anda</p>
 
       <form @submit.prevent="handleLogin" class="space-y-6">
         <!-- Email -->
@@ -16,7 +16,7 @@
               v-model="email"
               type="email"
               placeholder="nama@email.com"
-              class="w-full px-4 py-3.5 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors pl-11"
+              class="w-full px-4 py-3.5 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors pl-11"
               required
               autocomplete="email"
             />
@@ -27,7 +27,6 @@
         <div>
           <div class="flex items-center justify-between mb-2">
             <label class="text-xs uppercase tracking-widest text-gray-400">Kata Sandi</label>
-            <a class="text-xs text-gray-400 hover:text-black underline-offset-2 hover:underline transition-colors">Lupa kata sandi?</a>
           </div>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-300">
@@ -37,7 +36,7 @@
               v-model="password"
               :type="showPassword ? 'text' : 'password'"
               placeholder="••••••••"
-              class="w-full px-4 py-3.5 border border-gray-200 rounded-2xl text-sm focus:border-black focus:outline-none transition-colors pl-11 pr-11"
+              class="w-full px-4 py-3.5 border border-gray-200 rounded-2xl text-sm focus:border-accent-400 focus:outline-none transition-colors pl-11 pr-11"
               required
               autocomplete="current-password"
             />
@@ -52,12 +51,6 @@
           </div>
         </div>
 
-        <!-- Remember -->
-        <div class="flex items-center gap-2">
-          <input type="checkbox" class="w-4 h-4 border border-gray-300 rounded accent-black" checked />
-          <span class="text-xs text-gray-500">Ingat saya</span>
-        </div>
-
         <!-- Error -->
         <div v-if="error" class="bg-red-50 text-red-600 text-sm p-4 rounded-2xl border border-red-100 flex items-center gap-2">
           <Icon name="heroicons:exclamation-circle" class="w-5 h-5 shrink-0" />
@@ -65,7 +58,7 @@
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="w-full py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" :disabled="loading">
+        <button type="submit" class="w-full py-3.5 bg-black text-white text-sm font-medium rounded-full hover:bg-accent-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" :disabled="loading">
           <span v-if="loading" class="loading loading-spinner loading-sm"></span>
           <span v-else>Masuk</span>
         </button>

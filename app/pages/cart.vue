@@ -7,7 +7,7 @@
     </div>
 
     <div v-else-if="!cart.length" class="text-center py-20">
-      <Icon name="heroicons:shopping-cart" class="w-16 h-16 mx-auto text-gray-200 mb-4" />
+      <Icon name="heroicons:shopping-cart" class="w-16 h-16 mx-auto text-accent-200 mb-4" />
       <p class="text-gray-400 mb-4 text-sm">Keranjang masih kosong</p>
       <NuxtLink to="/products" class="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors">Mulai Belanja</NuxtLink>
     </div>
@@ -62,10 +62,10 @@
               <span class="text-gray-300">Dihitung saat checkout</span>
             </div>
           </div>
-          <NuxtLink to="/checkout" class="block w-full mt-6 py-3.5 bg-black text-white text-sm font-medium text-center rounded-full hover:bg-gray-800 transition-colors">
+          <NuxtLink to="/checkout" class="block w-full mt-6 py-3.5 bg-black text-white text-sm font-medium text-center rounded-full hover:bg-accent-400 transition-colors">
             Lanjut Checkout
           </NuxtLink>
-          <NuxtLink to="/products" class="block w-full text-center mt-3 text-xs text-gray-400 hover:text-black transition-colors">
+          <NuxtLink to="/products" class="block w-full text-center mt-3 text-xs text-gray-400 hover:text-accent-400 transition-colors">
             Lanjut Belanja
           </NuxtLink>
         </div>
@@ -80,6 +80,7 @@ definePageMeta({
 })
 
 const { cart, loading, totalItems, subtotal, fetchCart, updateQuantity, removeItem } = useCart()
+const { show: showToast } = useToast()
 
 function formatPrice(price: number) {
   return new Intl.NumberFormat('id-ID').format(price)
@@ -93,6 +94,7 @@ async function updateQty(id: number, qty: number) {
 async function remove(id: number) {
   if (!confirm('Hapus item ini dari keranjang?')) return
   await removeItem(id)
+  showToast('Item dihapus dari keranjang')
 }
 
 onMounted(() => fetchCart())
